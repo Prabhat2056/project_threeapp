@@ -60,23 +60,31 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       body: SafeArea(
-        child: Center(
-          child: SingleChildScrollView(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
+        child:  SingleChildScrollView(
+            // margin: const EdgeInsets.all(20),
+            padding: const EdgeInsets.all(30),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 // Logo / Hero image
-                Hero(
-                  tag: 'first-hero',
-                  child: Image.asset(
-                    "image/first.png",
-                    height: 100,
+                Align(
+                    alignment: Alignment.topLeft,
+                    child: Hero(
+                      tag: 'first-hero',
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                          left: 10,
+                          top: 10,
+                        ), // adjust padding
+                        child: Image.asset(
+                          "image/first.png",
+                          height: 150, // smaller size for top-left placement
+                        ),
+                      ),
+                    ),
                   ),
-                ),
                 const SizedBox(height: 20),
 
                 // Welcome Text
@@ -272,234 +280,11 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
         ),
-      ),
+      
     );
   }
 }
 
 
-// import 'package:flutter/material.dart';
-// import 'package:google_fonts/google_fonts.dart';
-// import 'package:project_etb/homepage.dart';
-// import 'package:project_etb/login/signup_page.dart';
 
-// class LoginPage extends StatelessWidget {
-//   const LoginPage({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       backgroundColor: Colors.white,
-//       body: SafeArea(
-//         child: Center(
-//           child: SingleChildScrollView(
-//             padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
-//             child: Column(
-//               children: [
-//                 /// 🔹 CONTAINER 1 → Hero Image
-//                 Container(
-//                    //padding: const EdgeInsets.symmetric( vertical: 50),
-//                   margin: const EdgeInsets.only(bottom: 20),
-//                   child: Hero(
-//                     tag: 'first-hero',
-//                     child: Image.asset(
-//                       "image/first.png",
-//                       height: 150, // adjustable size
-                      
-//                     ),
-//                   ),
-//                 ),
-
-//                 /// 🔹 CONTAINER 2 → Text + TextFields
-//                 Container(
-//                   padding: const EdgeInsets.symmetric(vertical: 20),
-//                   child: Column(
-//                     crossAxisAlignment: CrossAxisAlignment.center,
-//                     children: [
-//                       Text(
-//                         "Welcome Back,",
-//                         style: GoogleFonts.poppins(
-//                           fontSize: 26,
-//                           fontWeight: FontWeight.bold,
-//                           color: Colors.black,
-//                         ),
-//                       ),
-//                       const SizedBox(height: 4),
-//                       Text(
-//                         "Make it work, make it right, make it fast.",
-//                         textAlign: TextAlign.center,
-//                         style: GoogleFonts.poppins(
-//                           fontSize: 14,
-//                           color: Colors.grey[600],
-//                         ),
-//                       ),
-//                       const SizedBox(height: 24),
-
-//                       // Email Field
-//                       TextField(
-//                         decoration: InputDecoration(
-//                           prefixIcon: const Icon(Icons.email_outlined),
-//                           hintText: "E-Mail",
-//                           filled: true,
-//                           fillColor: Colors.grey[100],
-//                           border: OutlineInputBorder(
-//                             borderRadius: BorderRadius.circular(12),
-//                             borderSide: BorderSide.none,
-//                           ),
-//                         ),
-//                       ),
-//                       const SizedBox(height: 16),
-
-//                       // Password Field
-//                       TextField(
-//                         obscureText: true,
-//                         decoration: InputDecoration(
-//                           prefixIcon: const Icon(Icons.lock_outline),
-//                           suffixIcon: IconButton(
-//                             icon: const Icon(Icons.visibility_outlined),
-//                             onPressed: () {},
-//                           ),
-//                           hintText: "Password",
-//                           filled: true,
-//                           fillColor: Colors.grey[100],
-//                           border: OutlineInputBorder(
-//                             borderRadius: BorderRadius.circular(12),
-//                             borderSide: BorderSide.none,
-//                           ),
-//                         ),
-//                       ),
-
-//                       const SizedBox(height: 10),
-
-//                       // Forget Password
-//                       Align(
-//                         alignment: Alignment.centerRight,
-//                         child: TextButton(
-//                           onPressed: () {},
-//                           child: Text(
-//                             "Forget Password?",
-//                             style: GoogleFonts.poppins(color: Colors.blue),
-//                           ),
-//                         ),
-//                       ),
-//                     ],
-//                   ),
-//                 ),
-
-//                 /// 🔹 CONTAINER 3 → Buttons + OR + Google + Footer Links
-//                 Container(
-//                   padding: const EdgeInsets.only(top: 8),
-//                   child: Column(
-//                     children: [
-//                       // Login Button
-//                       SizedBox(
-//                         width: double.infinity,
-//                         child: ElevatedButton(
-//                           style: ElevatedButton.styleFrom(
-//                             backgroundColor: Colors.black,
-//                             padding: const EdgeInsets.symmetric(vertical: 14),
-//                             shape: RoundedRectangleBorder(
-//                               borderRadius: BorderRadius.circular(12),
-//                             ),
-//                           ),
-//                           onPressed: () {
-//                             Navigator.push(
-//                               context,
-//                               PageRouteBuilder(
-//                                 transitionDuration: const Duration(milliseconds: 800),
-//                                 pageBuilder: (context, animation, secondaryAnimation) =>
-//                                     const Homepage(),
-//                               ),
-//                             );
-//                           },
-//                           child: Text(
-//                             "LOGIN",
-//                             style: GoogleFonts.poppins(
-//                               color: Colors.white,
-//                               fontSize: 16,
-//                               fontWeight: FontWeight.w600,
-//                             ),
-//                           ),
-//                         ),
-//                       ),
-
-//                       const SizedBox(height: 16),
-
-//                       // Divider with OR
-//                       Row(
-//                         children: [
-//                           const Expanded(child: Divider(thickness: 1)),
-//                           Padding(
-//                             padding: const EdgeInsets.symmetric(horizontal: 8.0),
-//                             child: Text("OR", style: GoogleFonts.poppins()),
-//                           ),
-//                           const Expanded(child: Divider(thickness: 1)),
-//                         ],
-//                       ),
-//                       const SizedBox(height: 16),
-
-//                       // Google Sign-in Button
-//                       SizedBox(
-//                         width: double.infinity,
-//                         child: OutlinedButton.icon(
-//                           style: OutlinedButton.styleFrom(
-//                             padding: const EdgeInsets.symmetric(vertical: 14),
-//                             side: const BorderSide(color: Colors.black),
-//                             shape: RoundedRectangleBorder(
-//                               borderRadius: BorderRadius.circular(12),
-//                             ),
-//                           ),
-//                           onPressed: () {},
-//                           icon: Image.asset(
-//                             "image/google.png",
-//                             height: 20,
-//                           ),
-//                           label: Text(
-//                             "Sign-In with Google",
-//                             style: GoogleFonts.poppins(
-//                               color: Colors.black,
-//                               fontWeight: FontWeight.w500,
-//                             ),
-//                           ),
-//                         ),
-//                       ),
-
-//                       const SizedBox(height: 20),
-
-//                       // Signup Link
-//                       Row(
-//                         mainAxisAlignment: MainAxisAlignment.center,
-//                         children: [
-//                           Text("Don’t have an Account? ",
-//                               style: GoogleFonts.poppins(color: Colors.grey[700])),
-//                           GestureDetector(
-//                             onTap: () {
-//                               Navigator.push(
-//                                 context,
-//                                 MaterialPageRoute(
-//                                   builder: (context) => const SignupPage(),
-//                                 ),
-//                               );
-//                             },
-//                             child: Text(
-//                               "Signup",
-//                               style: GoogleFonts.poppins(
-//                                 color: Colors.blue,
-//                                 fontWeight: FontWeight.w600,
-//                               ),
-//                             ),
-//                           ),
-//                         ],
-//                       ),
-//                     ],
-//                   ),
-//                 ),
-//               ],
-//             ),
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
 
