@@ -2,7 +2,7 @@ import "package:cloud_firestore/cloud_firestore.dart";
 import "package:flutter/material.dart";
 import "package:project_etb/pages/mylist.dart";
 
-import "package:project_etb/pages/todo.dart";
+import "package:project_etb/models/todo.dart";
 
 
 
