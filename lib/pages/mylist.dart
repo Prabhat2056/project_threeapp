@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project_etb/pages/todo.dart';
+import 'package:project_etb/models/todo.dart';
 
 class MyList extends StatelessWidget {
   final ToDo todo;
